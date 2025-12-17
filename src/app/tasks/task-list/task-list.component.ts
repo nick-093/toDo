@@ -10,9 +10,9 @@ import { TasksService } from '../services/tasks.service';
     styleUrls: ['./task-list.component.css']
 })
 export class TaskListComponent {
-    constructor(public tasksService: TasksService) { }
+    tasks$;
 
-    get tasks() {
-        return this.tasksService.getTasks();
+    constructor(private tasksService: TasksService) {
+        this.tasks$ = this.tasksService.tasks$;
     }
 }

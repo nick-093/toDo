@@ -5,7 +5,7 @@
     </div>
 
     <div class="task-list">
-        <div *ngFor="let task of tasks" class="task-item glass-panel">
+        <div *ngFor="let task of tasks$ | async" class="task-item glass-panel">
             <div class="task-left">
                 <div class="check-circle" [class.completed]="task.status === 'Completed'"></div>
                 <div class="task-details">

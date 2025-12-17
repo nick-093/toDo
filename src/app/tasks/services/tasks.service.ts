@@ -1,24 +1,33 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject } from 'rxjs';
 import { Task } from '../models/task.model';
 
 @Injectable({
     providedIn: 'root'
 })
 export class TasksService {
-    private tasks: Task[] = [];
+    private tasksSubject = new BehaviorSubject<Task[]>([]);
+    tasks$ = this.tasksSubject.asObservable();
 
-    constructor(private http: HttpClient) {
-        this.http.get<Task[]>('assets/tasks.json').subscribe(tasks => {
-            this.tasks = tasks;
-        });
-    }
-
-    getTasks(): Task[] {
-        return this.tasks;
+    constructor() {
+        const pendingTasks = this.getPendingTasks();
+        this.tasksSubject.next([...pendingTasks]);
     }
 
     addTask(task: Task) {
-        this.tasks.unshift(task);
+        const currentTasks = this.tasksSubject.value;
+        this.tasksSubject.next([task, ...currentTasks]);
+        this.saveTaskToLocalStorage(task);
+    }
+
+    private getPendingTasks(): Task[] {
+        const tasks = localStorage.getItem('pendingTasks');
+        return tasks ? JSON.parse(tasks) : [];
+    }
+
+    private saveTaskToLocalStorage(task: Task) {
+        const tasks = this.getPendingTasks();
+        tasks.unshift(task);
+        localStorage.setItem('pendingTasks', JSON.stringify(tasks));
     }
 }
