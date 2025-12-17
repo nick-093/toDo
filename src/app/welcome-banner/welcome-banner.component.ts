@@ -16,7 +16,7 @@ export class WelcomeBannerComponent implements OnInit {
     constructor(private http: HttpClient) { }
 
     ngOnInit() {
-        this.http.get<any>('/assets/resources.json').subscribe({
+        this.http.get<any>('assets/resources.json').subscribe({
             next: (data) => {
                 if (data && data.pendingFeatures) {
                     this.pendingFeatures = data.pendingFeatures;
