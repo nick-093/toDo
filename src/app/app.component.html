@@ -1,0 +1,42 @@
+<div class="app-container">
+  <app-side-menu [isOpen]="isMenuOpen" (close)="isMenuOpen = false"></app-side-menu>
+  <!-- Header -->
+  <header class="app-header">
+    <div class="brand-container">
+      <button class="menu-btn" (click)="toggleMenu()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <div class="logo">
+        <div class="logo-icon">✓</div>
+        <span class="logo-text">ToDo</span>
+      </div>
+    </div>
+    <div class="header-actions">
+      <div class="search-bar">
+        <input type="text" placeholder="Search">
+        <span class="search-icon">🔍</span>
+      </div>
+      <div class="profile-avatar">
+        <img src="https://ui-avatars.com/api/?name=User&background=random" alt="Profile">
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <!-- Add Task Section -->
+    <!-- Add Task Section -->
+    <app-add-task></app-add-task>
+
+    <!-- Sidebar / Right Panel -->
+    <aside class="right-panel">
+      <!-- Menu moved to side-menu component -->
+
+      <app-task-list></app-task-list>
+    </aside>
+  </main>
+</div>

@@ -1,0 +1,12 @@
+<div class="side-menu-container" [class.open]="isOpen">
+    <div class="menu-header">
+        <span class="menu-title">Menu</span>
+        <button class="close-btn" (click)="onClose()">×</button>
+    </div>
+    <div class="nav-menu">
+        <div class="nav-item" *ngFor="let item of menuItems" [class.active]="item.active">
+            <span>{{ item.icon }}</span> {{ item.label }}
+        </div>
+    </div>
+</div>
+<div class="overlay" [class.visible]="isOpen" (click)="onClose()"></div>

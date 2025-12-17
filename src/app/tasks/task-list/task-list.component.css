@@ -1,0 +1,125 @@
+/* Task List */
+.task-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 0 10px;
+}
+
+.task-header h3 {
+    margin: 0;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    overflow-y: auto;
+    padding: 0 4px 10px 4px;
+    /* Space for shadow/hover */
+}
+
+/* Glass Panel */
+/* Copied here because it's used by task-item */
+.glass-panel {
+    background: rgba(30, 41, 59, 0.4);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+}
+
+.task-item {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: default;
+    border-left: 4px solid transparent;
+}
+
+.task-item:hover {
+    transform: translateY(-2px);
+    background: rgba(30, 41, 59, 0.6);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+    border-left-color: var(--accent-primary);
+}
+
+.task-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.check-circle {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.check-circle:hover {
+    border-color: var(--accent-primary);
+    background: rgba(59, 130, 246, 0.1);
+}
+
+.check-circle.completed {
+    background: var(--accent-primary);
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 10px var(--accent-primary);
+}
+
+.task-name {
+    font-weight: 500;
+    margin-bottom: 6px;
+    font-size: 16px;
+}
+
+.task-meta {
+    font-size: 12px;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.tag {
+    font-size: 11px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.tag.urgent {
+    color: #fca5a5;
+    background: rgba(248, 113, 113, 0.15);
+    border: 1px solid rgba(248, 113, 113, 0.2);
+}
+
+.tag.work {
+    color: #93c5fd;
+    background: rgba(96, 165, 250, 0.15);
+    border: 1px solid rgba(96, 165, 250, 0.2);
+}
+
+.tag.personal {
+    color: #c4b5fd;
+    background: rgba(167, 139, 250, 0.15);
+    border: 1px solid rgba(167, 139, 250, 0.2);
+}

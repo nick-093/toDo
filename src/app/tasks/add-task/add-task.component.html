@@ -1,0 +1,38 @@
+<section class="add-task-section">
+    <div class="glass-card form-card">
+        <h2>Add New Task</h2>
+
+        <div class="form-group">
+            <label>Activity Name</label>
+            <input type="text" [(ngModel)]="newTask.name" placeholder="Activity Name" class="glass-input">
+        </div>
+
+        <div class="form-row">
+            <div class="form-group half">
+                <label>Activity Type</label>
+                <select [(ngModel)]="newTask.type" class="glass-input select">
+                    <option value="Work">🏢 Work</option>
+                    <option value="Personal">👤 Personal</option>
+                    <option value="Urgent">⚡ Urgent</option>
+                </select>
+            </div>
+            <div class="form-group half">
+                <label>Status</label>
+                <select [(ngModel)]="newTask.status" class="glass-input select">
+                    <option value="To Do">🔵 To Do</option>
+                    <option value="In Progress">🟡 In Progress</option>
+                    <option value="Completed">🟢 Completed</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Date</label>
+            <div class="date-input-wrapper">
+                <input type="date" [(ngModel)]="newTask.date" class="glass-input">
+            </div>
+        </div>
+
+        <button (click)="addTask()" class="btn-primary">Add Task</button>
+    </div>
+</section>

@@ -1,0 +1,21 @@
+<div class="task-section">
+    <div class="task-header">
+        <h3>My Tasks</h3>
+        <span class="dots">•••</span>
+    </div>
+
+    <div class="task-list">
+        <div *ngFor="let task of tasks" class="task-item glass-panel">
+            <div class="task-left">
+                <div class="check-circle" [class.completed]="task.status === 'Completed'"></div>
+                <div class="task-details">
+                    <div class="task-name">{{ task.name }}</div>
+                    <div class="task-meta">
+                        <span class="meta-icon">📅</span> Due {{ task.date | date:'d' }}
+                    </div>
+                </div>
+            </div>
+            <span class="tag" [ngClass]="task.type.toLowerCase()">{{ task.type }}</span>
+        </div>
+    </div>
+</div>
