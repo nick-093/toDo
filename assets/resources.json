@@ -1,10 +1,9 @@
 {
     "pendingFeatures": [
-        "UX Design",
         "Navigation Menu",
         "Data Persistence",
         "Task Editing",
-        "Task deletion",
-        "Task Search"
+        "Task Search",
+        "UX Design improvements"
     ]
 }
