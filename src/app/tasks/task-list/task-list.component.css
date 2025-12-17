@@ -132,7 +132,32 @@
         gap: 12px;
     }
 
-    .tag {
-        align-self: flex-start;
+    .task-right {
+        width: 100%;
+        justify-content: space-between;
     }
+}
+
+.task-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.delete-btn {
+    background: transparent;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.2s;
+    opacity: 0.7;
+    /* Always visible but slightly dimmed */
+}
+
+.delete-btn:hover {
+    background: rgba(239, 68, 68, 0.1);
+    transform: scale(1.1);
+    opacity: 1;
 }

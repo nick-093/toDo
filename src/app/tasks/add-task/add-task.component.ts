@@ -31,12 +31,17 @@ export class AddTaskComponent {
                 date: this.newTask.date
             });
 
-            this.newTask = {
-                name: '',
-                type: 'Work',
-                status: 'To Do',
-                date: ''
-            };
+            this.clearForm();
         }
     }
+
+    clearForm() {
+        this.newTask = {
+            name: '',
+            type: 'Work',
+            status: 'To Do',
+            date: ''
+        };
+    }
 }
+

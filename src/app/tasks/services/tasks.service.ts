@@ -28,6 +28,17 @@ export class TasksService {
     private saveTaskToLocalStorage(task: Task) {
         const tasks = this.getPendingTasks();
         tasks.unshift(task);
+        this.updateTasksInLocalStorage(tasks);
+    }
+
+    deleteTask(taskId: number) {
+        const currentTasks = this.tasksSubject.value;
+        const updatedTasks = currentTasks.filter(task => task.id !== taskId);
+        this.tasksSubject.next(updatedTasks);
+        this.updateTasksInLocalStorage(updatedTasks);
+    }
+
+    private updateTasksInLocalStorage(tasks: Task[]) {
         localStorage.setItem('pendingTasks', JSON.stringify(tasks));
     }
 }

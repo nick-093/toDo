@@ -4,7 +4,11 @@
 
         <div class="form-group">
             <label>Activity Name</label>
-            <input type="text" [(ngModel)]="newTask.name" placeholder="Activity Name" class="glass-input">
+            <input type="text" [(ngModel)]="newTask.name" placeholder="Activity Name" class="glass-input" required
+                #nameInput="ngModel">
+            <div *ngIf="nameInput.invalid && (nameInput.dirty || nameInput.touched)" class="error-message">
+                <span>⚠️</span> Activity Name is required
+            </div>
         </div>
 
         <div class="form-row">
@@ -29,10 +33,17 @@
         <div class="form-group">
             <label>Date</label>
             <div class="date-input-wrapper">
-                <input type="date" [(ngModel)]="newTask.date" class="glass-input">
+                <input type="date" [(ngModel)]="newTask.date" class="glass-input" required #dateInput="ngModel">
+                <div *ngIf="dateInput.invalid && (dateInput.dirty || dateInput.touched)" class="error-message">
+                    <span>⚠️</span> Date is required
+                </div>
             </div>
         </div>
 
-        <button (click)="addTask()" class="btn-primary">Add Task</button>
+        <div class="button-group">
+            <button (click)="addTask()" class="btn-primary" [disabled]="!newTask.date || !newTask.name">
+                Add Task</button>
+            <button (click)="clearForm()" class="btn-secondary">Clear</button>
+        </div>
     </div>
 </section>
