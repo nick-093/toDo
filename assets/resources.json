@@ -1,0 +1,10 @@
+{
+    "pendingFeatures": [
+        "Navigation Menu",
+        "Data Persistence",
+        "Task Editing",
+        "Task deletion",
+        "Task Search",
+        "Dark Mode"
+    ]
+}
